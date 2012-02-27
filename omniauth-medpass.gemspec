@@ -15,10 +15,12 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = Omniauth::Medpass::VERSION
 
-  gem.add_runtime_dependency 'omniauth-openid', '~> 1.0.0'
   gem.add_runtime_dependency 'multi_json'
+  gem.add_runtime_dependency 'omniauth-openid', '~> 1.0.0'
 
-  gem.add_development_dependency 'rspec', '~> 2.8.0'
+  gem.add_development_dependency 'rack-test'
   gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec', '~> 2.8.0'
   gem.add_development_dependency 'simplecov'
+  gem.add_development_dependency 'webmock'
 end
