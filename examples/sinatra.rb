@@ -7,10 +7,7 @@ require 'sinatra'
 require 'omniauth-medpass'
 
 use Rack::Session::Cookie
-
-use OmniAuth::Builder do
-  provider :medpass, ENV['MEDPASS_API_KEY']
-end
+use OmniAuth::Strategies::Medpass, ENV['MEDPASS_API_KEY']
 
 get '/' do
   <<-HTML
