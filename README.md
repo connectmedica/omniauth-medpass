@@ -40,9 +40,9 @@ use OmniAuth::Builder do
 end
 ```
 
-*Medpass API Key* is not mandatory - you do not need it to successfully authenticate user - but if you provide it, you will have access to full Auth Hash data.
+*Medpass API Key* is optional - you do not need it to successfully authenticate user - but if you provide it, you will have access to full Auth Hash data.
 
-For more information on configuring OpenID strategy, see [original documentation](https://github.com/intridea/omniauth-openid).
+For more information about configuring OpenID strategy, see [original documentation](https://github.com/intridea/omniauth-openid).
 
 Note that default OpenID stores (`memory` and `filesystem`) will not work on clustered servers (unless they all share same store path).
 
@@ -50,6 +50,14 @@ Note that default OpenID stores (`memory` and `filesystem`) will not work on clu
 
 ```html
 <a href="/auth/medpass">Sign in with Medpass</a>
+```
+
+...and then retrieve authenticated user data in callback (here using Sinatra):
+
+```ruby
+post '/auth/unipass/callback' do
+  User.create(:id => request.env['omniauth.auth'].id)
+end
 ```
 
 ## Auth Hash
@@ -76,33 +84,33 @@ Exemplary Auth Hash obtained after successful authentication:
   },
   'extra' => {
     'raw_info' => {
+      'medpass_id'       => 123,
+      'login'            => 'eilda.bleet',
+      'firstname'        => 'Eilda',
+      'lastname'         => 'Bleet',
+      'title'            => 'Dr',
+      'display_name'     => 'anonimowy użytkownik',
+      'email'            => 'eilda@bleet.com'
+      'group'            => 2,
+      'group_key'        => 'DOC',
       'city'             => 'Poznań',
       'address'          => 'Lipna 27',
-      'group'            => 2,
-      'skype'            => 'eilda1717',
-      'group_key'        => 'DOC',
-      'company_city'     => 'Gdynia',
-      'title'            => 'Dr',
       'postcode'         => '01-234',
-      'company_name'     => 'Activeweb',
+      'mobile_phone'     => '521324354',
+      'phone'            => '229876543',
+      'skype'            => 'eilda1717',
+      'gadu'             => nil,
+      'pwz'              => '696969',
       'speciality'       => nil,
+      'about'            => 'I love pancakes!',
+      'gender'           => 1,
+      'company_name'     => 'Activeweb',
+      'company_address'  => 'Wiatru w polu 3',
+      'company_city'     => 'Gdynia',
+      'company_postcode' => nil,
+      'company_province' => 'śląskodąbrowskie',
       'company_phone'    => nil,
       'is_superviewer'   => false,
-      'gadu'             => nil,
-      'lastname'         => 'Bleet',
-      'gender'           => 1,
-      'about'            => 'I love pancakes!',
-      'company_postcode' => nil,
-      'phone'            => '987654321',
-      'firstname'        => 'Eilda',
-      'medpass_id'       => 123,
-      'company_province' => 'śląskodąbrowskie',
-      'display_name'     => 'anonimowy użytkownik',
-      'pwz'              => '696969',
-      'login'            => 'eilda.bleet',
-      'company_address'  => nil,
-      'mobile_phone'     => '',
-      'email'            => 'eilda@bleet.com'
       'province' => {
         'province' => {
           'name' => 'mazowieckie',
