@@ -1,7 +1,2 @@
-require "omniauth-medpass/version"
-
-module Omniauth
-  module Medpass
-    # Your code goes here...
-  end
-end
+require 'omniauth-medpass/version'
+require 'omniauth/strategies/medpass'
