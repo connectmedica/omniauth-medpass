@@ -19,6 +19,10 @@ Or install it yourself as:
 
     $ gem install omniauth-medpass
 
+## Quick start
+
+    $ MEDPASS_API_KEY="you_medpass_api_key" ruby examples/sinatra.rb
+
 ## Configuration
 
 ```ruby
