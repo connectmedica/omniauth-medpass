@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Quick start
 
-    $ MEDPASS_API_KEY="you_medpass_api_key" ruby examples/sinatra.rb
+    $ MEDPASS_API_KEY="your_medpass_api_key" ruby examples/sinatra.rb
 
 ## Configuration
 
