@@ -27,7 +27,7 @@ module OmniAuth
             'image'       => user_avatar_uri.to_s,
             'phone'       => raw_info['phone'], # Also available: mobile_phone
             'urls'        => {
-                options.name.to_s.capitalize => openid_url
+                options.name.to_s => openid_url
             }
         }
       end
