@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Omniauth::Medpass::VERSION
 
   gem.add_runtime_dependency 'omniauth-openid', '~> 1.0.0'
+  gem.add_runtime_dependency 'multi_json'
 
   gem.add_development_dependency 'rspec', '~> 2.8.0'
   gem.add_development_dependency 'rake'
