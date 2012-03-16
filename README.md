@@ -1,6 +1,6 @@
 # OmniAuth Medpass &nbsp;[![Build Status](https://secure.travis-ci.org/connectmedica/omniauth-medpass.png)][travis]&nbsp;[![Dependency Status](https://gemnasium.com/connectmedica/omniauth-medpass.png?travis)][gemnasium]
 
-Medpass OAuth2 Strategy for [OmniAuth 1.0](https://github.com/intridea/omniauth) authentication system.
+Medpass OpenID Strategy for [OmniAuth 1.0](https://github.com/intridea/omniauth) authentication system.
 
 [travis]: http://travis-ci.org/connectmedica/omniauth-medpass
 [gemnasium]: https://gemnasium.com/connectmedica/omniauth-medpass
