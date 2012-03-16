@@ -13,6 +13,7 @@ module OmniAuth
       option :site, 'http://medpass.pl'
       option :openid_url_scheme, 'http://%{login}.medpass.pl'
       option :identifier_param, 'login'
+      option :policy_url, nil
 
       uid { openid_response.display_identifier }
 
@@ -34,6 +35,17 @@ module OmniAuth
 
       extra do
         { 'raw_info' => raw_info }
+      end
+
+      def dummy_app
+        lambda{|env| [401, {"WWW-Authenticate" => Rack::OpenID.build_header(
+            :identifier => identifier,
+            :return_to => callback_url,
+            :required => options.required,
+            :optional => options.optional,
+            :policy_url => options.policy_url,
+            :method => 'post'
+        )}, []]}
       end
 
       def get_identifier
